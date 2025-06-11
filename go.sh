@@ -1,0 +1,12 @@
+CUDA_LAUNCH_BLOCKING=1 python experiment.py \
+    --model_type=roberta \
+    --model_name_or_path="microsoft/codebert-base" \
+    --checkpoint_file_path=/home/ziliwang/Projects/BERT_models/clone_detection/BigCloneBench/codebert/checkpoint-best-f1/model.bin \
+    --tokenizer_name=roberta-base \
+    --epoch 2 \
+    --block_size 400 \
+    --train_batch_size 32 \
+    --eval_batch_size 32 \
+    --learning_rate 5e-5 \
+    --max_grad_norm 1.0 \
+    --seed 123456  2>&1 | tee $output_dir/train.log
